@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92E7299D289AB1EB0017C5CB /* BTPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7299C289AB1EB0017C5CB /* BTPApp.swift */; };
-		92E7299F289AB1EB0017C5CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7299E289AB1EB0017C5CB /* ContentView.swift */; };
-		92E729A1289AB1ED0017C5CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E729A0289AB1ED0017C5CB /* Assets.xcassets */; };
-		92E729A4289AB1ED0017C5CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E729A3289AB1ED0017C5CB /* Preview Assets.xcassets */; };
+		92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729AC289AD17B0017C5CB /* BTPApp.swift */; };
+		92E729B2289AD17B0017C5CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729AD289AD17B0017C5CB /* ContentView.swift */; };
+		92E729B3289AD17B0017C5CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E729AF289AD17B0017C5CB /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		92E72999289AB1EB0017C5CB /* BTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E7299C289AB1EB0017C5CB /* BTPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPApp.swift; sourceTree = "<group>"; };
-		92E7299E289AB1EB0017C5CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		92E729A0289AB1ED0017C5CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		92E729A3289AB1ED0017C5CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92E729AC289AD17B0017C5CB /* BTPApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPApp.swift; sourceTree = "<group>"; };
+		92E729AD289AD17B0017C5CB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		92E729AF289AD17B0017C5CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,20 +49,35 @@
 		92E7299B289AB1EB0017C5CB /* BTP */ = {
 			isa = PBXGroup;
 			children = (
-				92E7299C289AB1EB0017C5CB /* BTPApp.swift */,
-				92E7299E289AB1EB0017C5CB /* ContentView.swift */,
-				92E729A0289AB1ED0017C5CB /* Assets.xcassets */,
-				92E729A2289AB1ED0017C5CB /* Preview Content */,
+				92E729AB289AD17B0017C5CB /* App */,
+				92E729B0289AD17B0017C5CB /* Features */,
+				92E729AE289AD17B0017C5CB /* Resources */,
 			);
 			path = BTP;
 			sourceTree = "<group>";
 		};
-		92E729A2289AB1ED0017C5CB /* Preview Content */ = {
+		92E729AB289AD17B0017C5CB /* App */ = {
 			isa = PBXGroup;
 			children = (
-				92E729A3289AB1ED0017C5CB /* Preview Assets.xcassets */,
+				92E729AC289AD17B0017C5CB /* BTPApp.swift */,
+				92E729AD289AD17B0017C5CB /* ContentView.swift */,
 			);
-			path = "Preview Content";
+			path = App;
+			sourceTree = "<group>";
+		};
+		92E729AE289AD17B0017C5CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				92E729AF289AD17B0017C5CB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		92E729B0289AD17B0017C5CB /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +87,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E729A7289AB1ED0017C5CB /* Build configuration list for PBXNativeTarget "BTP" */;
 			buildPhases = (
+				92E729AA289ACAE10017C5CB /* SwiftLint */,
 				92E72995289AB1EB0017C5CB /* Sources */,
 				92E72996289AB1EB0017C5CB /* Frameworks */,
 				92E72997289AB1EB0017C5CB /* Resources */,
@@ -125,20 +139,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E729A4289AB1ED0017C5CB /* Preview Assets.xcassets in Resources */,
-				92E729A1289AB1ED0017C5CB /* Assets.xcassets in Resources */,
+				92E729B3289AD17B0017C5CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92E729AA289ACAE10017C5CB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92E72995289AB1EB0017C5CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E7299F289AB1EB0017C5CB /* ContentView.swift in Sources */,
-				92E7299D289AB1EB0017C5CB /* BTPApp.swift in Sources */,
+				92E729B2289AD17B0017C5CB /* ContentView.swift in Sources */,
+				92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +301,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTP/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -274,6 +308,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -283,7 +318,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -294,7 +329,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BTP/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -302,6 +336,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +346,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
