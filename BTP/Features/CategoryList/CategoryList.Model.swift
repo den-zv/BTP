@@ -12,9 +12,9 @@ public enum CategoryList {}
 public extension CategoryList {
     
     // TODO: mark as typealias to common entity when API fetching is ready
-    struct Model {
+    struct Model: Hashable, Identifiable {
         
-        public struct Fact {
+        public struct Fact: Hashable {
             
             public let imageURL: URL?
             public let text: String
@@ -25,5 +25,7 @@ public extension CategoryList {
         public let imageURL: URL?
         public let order: Int
         public let content: [Fact]
+        
+        public var id: Self { self }
     }
 }

@@ -25,14 +25,13 @@ public extension CategoryList {
         
         // MARK: - Computed properties
         
-        var results: [CategoryView.ViewState] {
+        var results: [Model] {
             switch mode {
             case .idle, .loading, .error:
                 return []
             case .loaded(let results):
                 return results
                     .sorted { $0.order < $1.order }
-                    .map(CategoryView.ViewState.init)
             }
         }
         
@@ -84,6 +83,10 @@ public extension CategoryList {
                 ])
             }
         }
+        
+        func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
+            .init(model: model)
+        }
     }
 }
 
@@ -110,14 +113,3 @@ extension CategoryList.ViewModel {
     }
 }
 #endif
-
-// MARK: - External declarations
-
-extension CategoryView.ViewState: Identifiable {
-    
-    public var id: Self { self }
-    
-    init(model: CategoryList.Model) {
-        self.init(imageURL: model.imageURL, title: model.title, subtitle: model.description)
-    }
-}
