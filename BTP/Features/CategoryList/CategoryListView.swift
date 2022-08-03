@@ -27,7 +27,6 @@ public struct CategoryListView: View {
             loader()
             retryView()
         }
-        .padding()
         .onAppear {
             viewModel.loadData()
         }
@@ -37,12 +36,15 @@ public struct CategoryListView: View {
     
     @ViewBuilder
     private func contentView() -> some View {
-        List(viewModel.results) { viewState in
-            CategoryView(viewState: viewState)
-                .frame(minHeight: 100)
-                .listRowSeparator(.hidden)
+        NavigationView {
+            List(viewModel.results) { viewState in
+                CategoryView(viewState: viewState)
+                    .frame(minHeight: 100)
+                    .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .navigationTitle("Categories")
         }
-        .listStyle(.plain)
     }
     
     @ViewBuilder

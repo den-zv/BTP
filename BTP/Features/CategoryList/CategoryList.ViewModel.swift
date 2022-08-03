@@ -30,7 +30,7 @@ public extension CategoryList {
             case .idle, .loading, .error:
                 return []
             case .loaded(let results):
-                return results.map(CategoryView.ViewState.init)
+                return results.sorted { $0.order < $1.order }.map(CategoryView.ViewState.init)
             }
         }
         
@@ -74,7 +74,7 @@ public extension CategoryList {
             mode = .loading
             
             // TODO: pass proper call here
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.mode = .loaded([
                     .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2),
                     .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1),
