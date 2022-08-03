@@ -30,7 +30,9 @@ public extension CategoryList {
             case .idle, .loading, .error:
                 return []
             case .loaded(let results):
-                return results.sorted { $0.order < $1.order }.map(CategoryView.ViewState.init)
+                return results
+                    .sorted { $0.order < $1.order }
+                    .map(CategoryView.ViewState.init)
             }
         }
         
