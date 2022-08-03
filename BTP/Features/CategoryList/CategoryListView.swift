@@ -22,8 +22,35 @@ public struct CategoryListView: View {
     // MARK: - Body
     
     public var body: some View {
-        Text("List goes here")
-            .padding()
+        ZStack {
+            loader()
+            retryView()
+        }
+        .padding()
+    }
+    
+    // MARK: - Subviews
+    
+    @ViewBuilder
+    private func contentView() -> some View {}
+    
+    @ViewBuilder
+    private func loader() -> some View {
+        if viewModel.isLoadingShown {
+            ProgressView()
+        }
+    }
+    
+    @ViewBuilder
+    private func retryView() -> some View {
+        if let retryText = viewModel.retryText {
+            VStack(spacing: 300) {
+                Text(retryText)
+                Button("Retry") {
+                    viewModel.loadData()
+                }
+            }
+        }
     }
 }
 

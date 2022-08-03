@@ -48,8 +48,8 @@ public extension CategoryList {
             switch mode {
             case .loaded(let results) where results.isEmpty:
                 return "No results"
-            case .error(let error):
-                return error.localizedDescription
+            case .error:
+                return "Error occured"
             case .idle, .loading, .loaded:
                 return nil
             }
@@ -101,7 +101,11 @@ extension CategoryList.ViewModel {
     
     static var preview: Self {
         // TODO: add proper data for preview here
-        .init(mode: .loading)
+        .init(mode: .loaded([
+            .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1),
+            .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2),
+            .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3)
+        ]))
     }
 }
 #endif
