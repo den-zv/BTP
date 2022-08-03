@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct BTPApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategoryListView(viewModel: .initial)
         }
     }
 }
