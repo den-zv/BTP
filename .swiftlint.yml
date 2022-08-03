@@ -91,6 +91,9 @@ opt_in_rules:
 trailing_whitespace:
   ignores_empty_lines: true
 
+nesting:
+  type_level: 2
+
 large_tuple:
   warning: 3
   error: 3

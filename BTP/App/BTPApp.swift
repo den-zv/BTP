@@ -12,7 +12,7 @@ struct BTPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CategoryListView(viewModel: .init())
+            CategoryListView(viewModel: .initial)
         }
     }
 }

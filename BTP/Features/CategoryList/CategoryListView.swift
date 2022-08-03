@@ -9,14 +9,29 @@ import SwiftUI
 
 public struct CategoryListView: View {
     
-    @StateObject private var viewModel: ViewModel
+    // MARK: - Stored properties
     
-    public init(viewModel: @autoclosure @escaping () -> ViewModel) {
+    @StateObject private var viewModel: CategoryList.ViewModel
+    
+    // MARK: - Init
+    
+    public init(viewModel: @autoclosure @escaping () -> CategoryList.ViewModel) {
         _viewModel = .init(wrappedValue: viewModel())
     }
+    
+    // MARK: - Body
     
     public var body: some View {
         Text("List goes here")
             .padding()
+    }
+}
+
+// MARK: - Previews
+
+struct CategoryListView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        CategoryListView(viewModel: .preview)
     }
 }
