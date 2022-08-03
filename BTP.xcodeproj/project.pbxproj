@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729AC289AD17B0017C5CB /* BTPApp.swift */; };
-		92E729B2289AD17B0017C5CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729AD289AD17B0017C5CB /* ContentView.swift */; };
 		92E729B3289AD17B0017C5CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E729AF289AD17B0017C5CB /* Assets.xcassets */; };
+		92E729B6289AD6B40017C5CB /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729B5289AD6B40017C5CB /* CategoryListView.swift */; };
+		92E729B8289AD7840017C5CB /* CategoryListView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729B7289AD7840017C5CB /* CategoryListView.ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		92E72999289AB1EB0017C5CB /* BTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E729AC289AD17B0017C5CB /* BTPApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPApp.swift; sourceTree = "<group>"; };
-		92E729AD289AD17B0017C5CB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92E729AF289AD17B0017C5CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92E729B5289AD6B40017C5CB /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		92E729B7289AD7840017C5CB /* CategoryListView.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				92E729AC289AD17B0017C5CB /* BTPApp.swift */,
-				92E729AD289AD17B0017C5CB /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -76,8 +77,18 @@
 		92E729B0289AD17B0017C5CB /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				92E729B4289AD6760017C5CB /* CategoryList */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		92E729B4289AD6760017C5CB /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				92E729B7289AD7840017C5CB /* CategoryListView.ViewModel.swift */,
+				92E729B5289AD6B40017C5CB /* CategoryListView.swift */,
+			);
+			path = CategoryList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +183,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E729B2289AD17B0017C5CB /* ContentView.swift in Sources */,
+				92E729B6289AD6B40017C5CB /* CategoryListView.swift in Sources */,
+				92E729B8289AD7840017C5CB /* CategoryListView.ViewModel.swift in Sources */,
 				92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
