@@ -23,21 +23,33 @@ public struct CategoryListView: View {
     
     public var body: some View {
         ZStack {
+            contentView()
             loader()
             retryView()
         }
         .padding()
+        .onAppear {
+            viewModel.loadData()
+        }
     }
     
     // MARK: - Subviews
     
     @ViewBuilder
-    private func contentView() -> some View {}
+    private func contentView() -> some View {
+        List(viewModel.results) { viewState in
+            CategoryView(viewState: viewState)
+                .frame(minHeight: 100)
+                .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+    }
     
     @ViewBuilder
     private func loader() -> some View {
         if viewModel.isLoadingShown {
             ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .green))
         }
     }
     

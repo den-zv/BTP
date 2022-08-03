@@ -25,12 +25,12 @@ public extension CategoryList {
         
         // MARK: - Computed properties
         
-        var results: [Model] {
+        var results: [CategoryView.ViewState] {
             switch mode {
             case .idle, .loading, .error:
                 return []
             case .loaded(let results):
-                return results
+                return results.map(CategoryView.ViewState.init)
             }
         }
         
@@ -76,9 +76,9 @@ public extension CategoryList {
             // TODO: pass proper call here
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self.mode = .loaded([
-                    .init(title: "Test", description: "Test", imageURL: nil, order: 1),
-                    .init(title: "Test", description: "Test", imageURL: nil, order: 2),
-                    .init(title: "Test", description: "Test", imageURL: nil, order: 3)
+                    .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2),
+                    .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1),
+                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3)
                 ])
             }
         }
@@ -109,3 +109,14 @@ extension CategoryList.ViewModel {
     }
 }
 #endif
+
+// MARK: - External declarations
+
+extension CategoryView.ViewState: Identifiable {
+    
+    public var id: Self { self }
+    
+    init(model: CategoryList.Model) {
+        self.init(imageURL: model.imageURL, title: model.title, subtitle: model.description)
+    }
+}
