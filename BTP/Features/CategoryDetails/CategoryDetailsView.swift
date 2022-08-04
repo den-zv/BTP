@@ -27,6 +27,8 @@ public struct CategoryDetailsView: View {
             buttonsView()
             Spacer(minLength: 50)
         }
+        .navigationTitle(viewModel.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     // MARK: - Subviews
