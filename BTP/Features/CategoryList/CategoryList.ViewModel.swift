@@ -76,15 +76,7 @@ public extension CategoryList {
             
             // TODO: pass proper call here
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.mode = .loaded([
-                    .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
-                    .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
-                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [
-                        .init(imageURL: nil, text: "Fact 1"),
-                        .init(imageURL: nil, text: "Fact 2"),
-                        .init(imageURL: nil, text: "Fact 3")
-                    ])
-                ])
+                self.mode = .loaded(.preview(5).shuffled())
             }
         }
         
@@ -109,11 +101,7 @@ public extension CategoryList.ViewModel {
 extension CategoryList.ViewModel {
     
     static var preview: Self {
-        .init(mode: .loaded([
-            .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
-            .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
-            .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [])
-        ]))
+        .init(mode: .loaded(.preview(3)))
     }
 }
 #endif

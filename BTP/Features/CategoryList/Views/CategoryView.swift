@@ -28,8 +28,9 @@ public struct CategoryView: View {
             )
             .frame(width: 70)
             
-            VStack {
+            VStack(alignment: .leading) {
                 Text(viewState.title)
+                    .bold()
                 Text(viewState.subtitle)
                 Spacer()
             }
@@ -66,7 +67,7 @@ struct CategoryView_Previews: PreviewProvider {
     
     static var previews: some View {
         CategoryView(viewState: .init(
-            model: .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: [])
+            model: .preview(2)
         ))
         .previewLayout(.fixed(width: 300, height: 120))
     }

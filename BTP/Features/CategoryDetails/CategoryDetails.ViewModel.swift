@@ -12,8 +12,6 @@ public extension CategoryDetails {
     @MainActor
     final class ViewModel: ObservableObject {
         
-        public typealias Fact = Model.Fact
-        
         // MARK: - Stored properties
         
         @Published var title: String
@@ -56,11 +54,7 @@ public extension CategoryDetails {
 extension CategoryDetails.ViewModel {
     
     static var preview: Self {
-        .init(model: .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: [
-            .init(imageURL: nil, text: "Fact 1"),
-            .init(imageURL: nil, text: "Fact 2"),
-            .init(imageURL: nil, text: "Fact 3")
-        ]))
+        .init(model: .preview(1))
     }
 }
 #endif
