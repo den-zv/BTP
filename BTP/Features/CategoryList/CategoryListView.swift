@@ -37,10 +37,14 @@ public struct CategoryListView: View {
     @ViewBuilder
     private func contentView() -> some View {
         NavigationView {
-            List(viewModel.results) { viewState in
-                CategoryView(viewState: viewState)
-                    .frame(minHeight: 100)
-                    .listRowSeparator(.hidden)
+            List(viewModel.results) { model in
+                NavigationLink(destination: CategoryDetailsView(
+                    viewModel: viewModel.categoryDetailsViewModel(for: model)
+                )) {
+                    CategoryView(viewState: .init(model: model))
+                        .frame(minHeight: 100)
+                }
+                .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationTitle("Categories")

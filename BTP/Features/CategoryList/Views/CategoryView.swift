@@ -37,7 +37,7 @@ public struct CategoryView: View {
             Spacer()
         }
         .padding()
-        .background(Color.cyan)
+        .background(Color.cyan.opacity(0.3))
         .cornerRadius(12)
     }
 }
@@ -46,11 +46,17 @@ public struct CategoryView: View {
 
 public extension CategoryView {
     
-    struct ViewState: Hashable {
+    struct ViewState {
         
         let imageURL: URL?
         let title: String
         let subtitle: String
+        
+        init(model: CategoryList.Model) {
+            imageURL = model.imageURL
+            title = model.title
+            subtitle = model.description
+        }
     }
 }
 
@@ -59,7 +65,9 @@ public extension CategoryView {
 struct CategoryView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CategoryView(viewState: .init(imageURL: nil, title: "Title", subtitle: "Subtitle"))
-            .previewLayout(.fixed(width: 300, height: 120))
+        CategoryView(viewState: .init(
+            model: .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: [])
+        ))
+        .previewLayout(.fixed(width: 300, height: 120))
     }
 }

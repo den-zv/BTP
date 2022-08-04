@@ -25,14 +25,13 @@ public extension CategoryList {
         
         // MARK: - Computed properties
         
-        var results: [CategoryView.ViewState] {
+        var results: [Model] {
             switch mode {
             case .idle, .loading, .error:
                 return []
             case .loaded(let results):
                 return results
                     .sorted { $0.order < $1.order }
-                    .map(CategoryView.ViewState.init)
             }
         }
         
@@ -78,11 +77,19 @@ public extension CategoryList {
             // TODO: pass proper call here
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.mode = .loaded([
-                    .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2),
-                    .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1),
-                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3)
+                    .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
+                    .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
+                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [
+                        .init(imageURL: nil, text: "Fact 1"),
+                        .init(imageURL: nil, text: "Fact 2"),
+                        .init(imageURL: nil, text: "Fact 3")
+                    ])
                 ])
             }
+        }
+        
+        func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
+            .init(model: model)
         }
     }
 }
@@ -102,23 +109,11 @@ public extension CategoryList.ViewModel {
 extension CategoryList.ViewModel {
     
     static var preview: Self {
-        // TODO: add proper data for preview here
         .init(mode: .loaded([
-            .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1),
-            .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2),
-            .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3)
+            .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
+            .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
+            .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [])
         ]))
     }
 }
 #endif
-
-// MARK: - External declarations
-
-extension CategoryView.ViewState: Identifiable {
-    
-    public var id: Self { self }
-    
-    init(model: CategoryList.Model) {
-        self.init(imageURL: model.imageURL, title: model.title, subtitle: model.description)
-    }
-}
