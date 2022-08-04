@@ -12,7 +12,12 @@ struct BTPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CategoryListView(viewModel: .initial)
+            CategoryListView(viewModel: .initial(
+                environment: .init(
+                    api: Self.Environment.live.api,
+                    ads: Self.Environment.live.ads
+                )
+            ))
         }
     }
 }

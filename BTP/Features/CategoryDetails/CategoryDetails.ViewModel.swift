@@ -19,6 +19,8 @@ public extension CategoryDetails {
         
         @Published var selection = 0
         
+        private let environment: Environment
+        
         // MARK: - Computed properties
         
         var showsPreviousButton: Bool {
@@ -31,9 +33,10 @@ public extension CategoryDetails {
         
         // MARK: - Init
         
-        public init(model: Model) {
+        public init(model: Model, environment: Environment) {
             title = model.title
             facts = model.content
+            self.environment = environment
         }
         
         // MARK: - Public methods
@@ -54,7 +57,7 @@ public extension CategoryDetails {
 extension CategoryDetails.ViewModel {
     
     static var preview: Self {
-        .init(model: .preview(1))
+        .init(model: .preview(1), environment: .init())
     }
 }
 #endif
