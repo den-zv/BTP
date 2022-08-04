@@ -29,6 +29,10 @@ public struct Category: Hashable, Decodable {
     public let order: Int
     public let status: Status
     public let content: [Fact]
+    
+    public var isComingSoon: Bool {
+        content.isEmpty
+    }
 }
 
 // MARK: - Preview

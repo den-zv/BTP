@@ -14,6 +14,17 @@ public struct CategoryView: View {
     // MARK: - Body
     
     public var body: some View {
+        ZStack {
+            content()
+            comingSoon()
+        }
+        .cornerRadius(12)
+    }
+    
+    // MARK: - Subviews
+    
+    @ViewBuilder
+    private func content() -> some View {
         HStack(alignment: .center) {
             AsyncImage(
                 url: viewState.imageURL,
@@ -41,7 +52,17 @@ public struct CategoryView: View {
         }
         .padding()
         .background(Color.cyan.opacity(0.3))
-        .cornerRadius(12)
+    }
+    
+    @ViewBuilder
+    private func comingSoon() -> some View {
+        if viewState.isComingSoonShown {
+            Color.black.opacity(0.6)
+            Text("Coming soon")
+                .foregroundColor(.white)
+                .font(.system(size: 30, weight: .semibold))
+                .rotationEffect(.degrees(7))
+        }
     }
 }
 
@@ -54,11 +75,13 @@ public extension CategoryView {
         let imageURL: URL?
         let title: String
         let subtitle: String
+        let isComingSoonShown: Bool
         
         init(model: CategoryList.Model) {
             imageURL = model.imageURL
             title = model.title
             subtitle = model.description
+            isComingSoonShown = model.isComingSoon
         }
     }
 }
