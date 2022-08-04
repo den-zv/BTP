@@ -21,6 +21,7 @@ extension BTPApp {
 extension BTPApp.Environment {
     
     static var live: Self {
-        .init(api: .live, ads: .live)
+        // using stub for API here since live URL responds with 403
+        .init(api: .stub, ads: .live)
     }
 }

@@ -23,6 +23,7 @@
 		92E729D1289BA5310017C5CB /* BTPApp.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D0289BA5310017C5CB /* BTPApp.Environment.swift */; };
 		92E729D3289BA7700017C5CB /* CategoryList.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */; };
 		92E729D5289BAA790017C5CB /* CategoryDetails.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */; };
+		92E729D7289BAB320017C5CB /* APIEnvironment.Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		92E729D0289BA5310017C5CB /* BTPApp.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPApp.Environment.swift; sourceTree = "<group>"; };
 		92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.Environment.swift; sourceTree = "<group>"; };
 		92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.Environment.swift; sourceTree = "<group>"; };
+		92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.Stub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				92E729CC289B9C130017C5CB /* APIEnvironment.swift */,
+				92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */,
 				92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */,
 			);
 			path = Environments;
@@ -266,6 +269,7 @@
 				92E729D5289BAA790017C5CB /* CategoryDetails.Environment.swift in Sources */,
 				92E729BE289B179D0017C5CB /* CategoryView.swift in Sources */,
 				92E729C3289B3BC80017C5CB /* CategoryDetails.ViewModel.swift in Sources */,
+				92E729D7289BAB320017C5CB /* APIEnvironment.Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
