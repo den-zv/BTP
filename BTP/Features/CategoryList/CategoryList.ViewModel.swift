@@ -149,7 +149,12 @@ public extension CategoryList {
                 .ads
                 .showAd()
                 .sink { [weak self] isWatched in
-                    guard let self = self, isWatched else {
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    guard isWatched else {
+                        self.isShowingAd = false
                         return
                     }
                     
