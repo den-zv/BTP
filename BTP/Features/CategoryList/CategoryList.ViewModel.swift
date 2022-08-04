@@ -20,9 +20,20 @@ public extension CategoryList {
             case error(Error)
         }
         
+        public enum Alert: Hashable, Identifiable {
+            case comingSoon
+            case advertisement(Model)
+            
+            public var id: Self { self }
+        }
+        
         // MARK: - Stored properties
         
-        @Published var mode: Mode
+        @Published private var mode: Mode
+        @Published private(set) var selection: Model?
+        @Published var alert: Alert?
+        @Published private var isShowingAd = false
+        
         private let environment: Environment
         
         private var cancellables: Set<AnyCancellable> = []
@@ -40,6 +51,10 @@ public extension CategoryList {
         }
         
         var isLoadingShown: Bool {
+            if isShowingAd {
+                return true
+            }
+            
             switch mode {
             case .idle, .loaded, .error:
                 return false
@@ -99,6 +114,53 @@ public extension CategoryList {
                         result = value
                     }
                 )
+                .store(in: &cancellables)
+        }
+        
+        func update(selection: Model?) {
+            guard let selection = selection else {
+                self.selection = nil
+                return
+            }
+
+            guard !selection.isComingSoon else {
+                self.selection = nil
+                self.alert = .comingSoon
+                return
+            }
+            
+            switch selection.status {
+            case .free:
+                self.selection = selection
+            case .paid:
+                self.selection = nil
+                self.alert = .advertisement(selection)
+            }
+        }
+        
+        func showAd(_ model: Model) {
+            guard !isShowingAd else {
+                return
+            }
+            
+            isShowingAd = true
+            
+            environment
+                .ads
+                .showAd()
+                .sink { [weak self] isWatched in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    guard isWatched else {
+                        self.isShowingAd = false
+                        return
+                    }
+                    
+                    self.isShowingAd = false
+                    self.selection = model
+                }
                 .store(in: &cancellables)
         }
         
