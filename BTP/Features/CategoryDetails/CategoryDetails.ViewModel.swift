@@ -12,14 +12,14 @@ public extension CategoryDetails {
     @MainActor
     final class ViewModel: ObservableObject {
         
-        public typealias Fact = Model.Fact
-        
         // MARK: - Stored properties
         
         @Published var title: String
         @Published var facts: [Fact]
         
         @Published var selection = 0
+        
+        private let environment: Environment
         
         // MARK: - Computed properties
         
@@ -33,9 +33,10 @@ public extension CategoryDetails {
         
         // MARK: - Init
         
-        public init(model: Model) {
+        public init(model: Model, environment: Environment) {
             title = model.title
             facts = model.content
+            self.environment = environment
         }
         
         // MARK: - Public methods
@@ -56,11 +57,7 @@ public extension CategoryDetails {
 extension CategoryDetails.ViewModel {
     
     static var preview: Self {
-        .init(model: .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: [
-            .init(imageURL: nil, text: "Fact 1"),
-            .init(imageURL: nil, text: "Fact 2"),
-            .init(imageURL: nil, text: "Fact 3")
-        ]))
+        .init(model: .preview(1), environment: .init())
     }
 }
 #endif

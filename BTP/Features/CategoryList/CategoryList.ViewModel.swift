@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 public extension CategoryList {
     
@@ -22,6 +23,9 @@ public extension CategoryList {
         // MARK: - Stored properties
         
         @Published var mode: Mode
+        private let environment: Environment
+        
+        private var cancellables: Set<AnyCancellable> = []
         
         // MARK: - Computed properties
         
@@ -58,8 +62,9 @@ public extension CategoryList {
         
         // MARK: - Init
         
-        public init(mode: Mode) {
+        public init(mode: Mode, environment: Environment) {
             self.mode = mode
+            self.environment = environment
         }
         
         // MARK: - Public methods
@@ -74,22 +79,32 @@ public extension CategoryList {
             
             mode = .loading
             
-            // TODO: pass proper call here
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.mode = .loaded([
-                    .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
-                    .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
-                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [
-                        .init(imageURL: nil, text: "Fact 1"),
-                        .init(imageURL: nil, text: "Fact 2"),
-                        .init(imageURL: nil, text: "Fact 3")
-                    ])
-                ])
-            }
+            var result: [Model] = []
+            environment
+                .api
+                .fetchCategories()
+                .sink(
+                    receiveCompletion: { [weak self] completion in
+                        guard let self = self else {
+                            return
+                        }
+                        switch completion {
+                        case .finished:
+                            self.mode = .loaded(result)
+                        case .failure(let error):
+                            self.mode = .error(error)
+                        }
+                    },
+                    receiveValue: { value in
+                        result = value
+                    }
+                )
+                .store(in: &cancellables)
         }
         
         func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
-            .init(model: model)
+            // we can pass services between view models here if needed
+            .init(model: model, environment: .init())
         }
     }
 }
@@ -98,8 +113,8 @@ public extension CategoryList {
 
 public extension CategoryList.ViewModel {
     
-    static var initial: Self {
-        .init(mode: .idle)
+    static func initial(environment: CategoryList.Environment) -> Self {
+        .init(mode: .idle, environment: environment)
     }
 }
 
@@ -109,11 +124,7 @@ public extension CategoryList.ViewModel {
 extension CategoryList.ViewModel {
     
     static var preview: Self {
-        .init(mode: .loaded([
-            .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
-            .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
-            .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [])
-        ]))
+        .init(mode: .idle, environment: .init(api: .preview, ads: .preview))
     }
 }
 #endif

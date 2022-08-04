@@ -16,6 +16,14 @@
 		92E729C1289B3BBE0017C5CB /* CategoryDetails.Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C0289B3BBE0017C5CB /* CategoryDetails.Model.swift */; };
 		92E729C3289B3BC80017C5CB /* CategoryDetails.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C2289B3BC80017C5CB /* CategoryDetails.ViewModel.swift */; };
 		92E729C5289B3BCF0017C5CB /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C4289B3BCF0017C5CB /* CategoryDetailsView.swift */; };
+		92E729C8289B95170017C5CB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C7289B95170017C5CB /* Category.swift */; };
+		92E729CA289B953D0017C5CB /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C9289B953D0017C5CB /* Fact.swift */; };
+		92E729CD289B9C130017C5CB /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729CC289B9C130017C5CB /* APIEnvironment.swift */; };
+		92E729CF289BA3C00017C5CB /* AdsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */; };
+		92E729D1289BA5310017C5CB /* BTPApp.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D0289BA5310017C5CB /* BTPApp.Environment.swift */; };
+		92E729D3289BA7700017C5CB /* CategoryList.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */; };
+		92E729D5289BAA790017C5CB /* CategoryDetails.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */; };
+		92E729D7289BAB320017C5CB /* APIEnvironment.Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +37,14 @@
 		92E729C0289B3BBE0017C5CB /* CategoryDetails.Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.Model.swift; sourceTree = "<group>"; };
 		92E729C2289B3BC80017C5CB /* CategoryDetails.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.ViewModel.swift; sourceTree = "<group>"; };
 		92E729C4289B3BCF0017C5CB /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
+		92E729C7289B95170017C5CB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		92E729C9289B953D0017C5CB /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		92E729CC289B9C130017C5CB /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsEnvironment.swift; sourceTree = "<group>"; };
+		92E729D0289BA5310017C5CB /* BTPApp.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTPApp.Environment.swift; sourceTree = "<group>"; };
+		92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.Environment.swift; sourceTree = "<group>"; };
+		92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.Environment.swift; sourceTree = "<group>"; };
+		92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.Stub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,8 @@
 		92E7299B289AB1EB0017C5CB /* BTP */ = {
 			isa = PBXGroup;
 			children = (
+				92E729C6289B94EC0017C5CB /* Entities */,
+				92E729CB289B9BF50017C5CB /* Environments */,
 				92E729AB289AD17B0017C5CB /* App */,
 				92E729B0289AD17B0017C5CB /* Features */,
 				92E729AE289AD17B0017C5CB /* Resources */,
@@ -72,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				92E729AC289AD17B0017C5CB /* BTPApp.swift */,
+				92E729D0289BA5310017C5CB /* BTPApp.Environment.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -96,6 +115,7 @@
 		92E729B4289AD6760017C5CB /* CategoryList */ = {
 			isa = PBXGroup;
 			children = (
+				92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */,
 				92E729B9289AE12F0017C5CB /* CategoryList.Model.swift */,
 				92E729B7289AD7840017C5CB /* CategoryList.ViewModel.swift */,
 				92E729B5289AD6B40017C5CB /* CategoryListView.swift */,
@@ -115,11 +135,31 @@
 		92E729BF289B3BA70017C5CB /* CategoryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */,
 				92E729C0289B3BBE0017C5CB /* CategoryDetails.Model.swift */,
 				92E729C2289B3BC80017C5CB /* CategoryDetails.ViewModel.swift */,
 				92E729C4289B3BCF0017C5CB /* CategoryDetailsView.swift */,
 			);
 			path = CategoryDetails;
+			sourceTree = "<group>";
+		};
+		92E729C6289B94EC0017C5CB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				92E729C7289B95170017C5CB /* Category.swift */,
+				92E729C9289B953D0017C5CB /* Fact.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		92E729CB289B9BF50017C5CB /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				92E729CC289B9C130017C5CB /* APIEnvironment.swift */,
+				92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */,
+				92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */,
+			);
+			path = Environments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,13 +255,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E729BA289AE12F0017C5CB /* CategoryList.Model.swift in Sources */,
+				92E729D1289BA5310017C5CB /* BTPApp.Environment.swift in Sources */,
 				92E729C1289B3BBE0017C5CB /* CategoryDetails.Model.swift in Sources */,
 				92E729B6289AD6B40017C5CB /* CategoryListView.swift in Sources */,
 				92E729C5289B3BCF0017C5CB /* CategoryDetailsView.swift in Sources */,
+				92E729CF289BA3C00017C5CB /* AdsEnvironment.swift in Sources */,
+				92E729D3289BA7700017C5CB /* CategoryList.Environment.swift in Sources */,
 				92E729B8289AD7840017C5CB /* CategoryList.ViewModel.swift in Sources */,
+				92E729C8289B95170017C5CB /* Category.swift in Sources */,
 				92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */,
+				92E729CD289B9C130017C5CB /* APIEnvironment.swift in Sources */,
+				92E729CA289B953D0017C5CB /* Fact.swift in Sources */,
+				92E729D5289BAA790017C5CB /* CategoryDetails.Environment.swift in Sources */,
 				92E729BE289B179D0017C5CB /* CategoryView.swift in Sources */,
 				92E729C3289B3BC80017C5CB /* CategoryDetails.ViewModel.swift in Sources */,
+				92E729D7289BAB320017C5CB /* APIEnvironment.Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

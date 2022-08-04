@@ -44,6 +44,8 @@ public struct CategoryDetailsView: View {
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
+                                .frame(height: 200)
+                                .clipped()
                         },
                         placeholder: {
                             Image(systemName: "camera.fill")
