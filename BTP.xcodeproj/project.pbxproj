@@ -19,6 +19,7 @@
 		92E729C8289B95170017C5CB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C7289B95170017C5CB /* Category.swift */; };
 		92E729CA289B953D0017C5CB /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729C9289B953D0017C5CB /* Fact.swift */; };
 		92E729CD289B9C130017C5CB /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729CC289B9C130017C5CB /* APIEnvironment.swift */; };
+		92E729CF289BA3C00017C5CB /* AdsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		92E729C7289B95170017C5CB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		92E729C9289B953D0017C5CB /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		92E729CC289B9C130017C5CB /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				92E729CC289B9C130017C5CB /* APIEnvironment.swift */,
+				92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				92E729C1289B3BBE0017C5CB /* CategoryDetails.Model.swift in Sources */,
 				92E729B6289AD6B40017C5CB /* CategoryListView.swift in Sources */,
 				92E729C5289B3BCF0017C5CB /* CategoryDetailsView.swift in Sources */,
+				92E729CF289BA3C00017C5CB /* AdsEnvironment.swift in Sources */,
 				92E729B8289AD7840017C5CB /* CategoryList.ViewModel.swift in Sources */,
 				92E729C8289B95170017C5CB /* Category.swift in Sources */,
 				92E729B1289AD17B0017C5CB /* BTPApp.swift in Sources */,

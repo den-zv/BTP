@@ -62,10 +62,9 @@ extension APIEnvironment {
     static var preview: Self {
         .init {
             Future { promise in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    promise(.success(.preview(5)))
-                }
+                promise(.success(.preview(5)))
             }
+            .delay(for: 1.0, scheduler: DispatchQueue.main)
             .eraseToAnyPublisher()
         }
     }
