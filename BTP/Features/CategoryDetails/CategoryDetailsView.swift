@@ -36,7 +36,7 @@ public struct CategoryDetailsView: View {
     @ViewBuilder
     private func tabView() -> some View {
         TabView(selection: $viewModel.selection) {
-            ForEach(Array(viewModel.facts.enumerated()), id: \.offset) { offset, element in
+            ForEach(Array(viewModel.facts.enumerated()), id: \.element) { offset, element in
                 tab(tag: offset, model: element)
             }
         }

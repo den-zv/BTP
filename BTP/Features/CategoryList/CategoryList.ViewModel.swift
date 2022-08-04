@@ -20,9 +20,19 @@ public extension CategoryList {
             case error(Error)
         }
         
+        public enum Alert: Hashable, Identifiable {
+            case comingSoon
+            case advertisement
+            
+            public var id: Self { self }
+        }
+        
         // MARK: - Stored properties
         
         @Published var mode: Mode
+        @Published private(set) var selection: Model?
+        @Published var alert: Alert?
+        
         private let environment: Environment
         
         private var cancellables: Set<AnyCancellable> = []
@@ -101,6 +111,29 @@ public extension CategoryList {
                 )
                 .store(in: &cancellables)
         }
+        
+        func update(selection: Model?) {
+            guard let selection = selection else {
+                self.selection = nil
+                return
+            }
+
+            guard !selection.isComingSoon else {
+                self.selection = nil
+                self.alert = .comingSoon
+                return
+            }
+            
+            switch selection.status {
+            case .free:
+                self.selection = selection
+            case .paid:
+                self.selection = nil
+                self.alert = .advertisement
+            }
+        }
+        
+        func showAd() {}
         
         func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
             // we can pass services between view models here if needed

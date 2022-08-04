@@ -30,6 +30,7 @@ public struct CategoryListView: View {
         .onAppear {
             viewModel.loadData()
         }
+        .alert(item: $viewModel.alert) { alert($0) }
     }
     
     // MARK: - Subviews
@@ -38,14 +39,20 @@ public struct CategoryListView: View {
     private func contentView() -> some View {
         NavigationView {
             List(viewModel.results) { model in
-                NavigationLink(destination: CategoryDetailsView(
-                    viewModel: viewModel.categoryDetailsViewModel(for: model)
-                )) {
+                NavigationLink(
+                    destination: CategoryDetailsView(
+                        viewModel: viewModel.categoryDetailsViewModel(for: model)
+                    ),
+                    tag: model,
+                    selection: .init(
+                        get: { viewModel.selection },
+                        set: { viewModel.update(selection: $0) }
+                    )
+                ) {
                     CategoryView(viewState: .init(model: model))
                         .frame(minHeight: 100)
                 }
                 .listRowSeparator(.hidden)
-                .disabled(model.isComingSoon)
             }
             .listStyle(.plain)
             .navigationTitle("Categories")
@@ -69,6 +76,22 @@ public struct CategoryListView: View {
                     viewModel.loadData()
                 }
             }
+        }
+    }
+    
+    private func alert(_ alert: CategoryList.ViewModel.Alert) -> Alert {
+        switch alert {
+        case .comingSoon:
+            return .init(
+                title: Text("Coming soon"),
+                message: Text("There are no any content yet")
+            )
+        case .advertisement:
+            return .init(
+                title: Text("Show Ad?"),
+                primaryButton: .default(Text("Sure!"), action: { viewModel.showAd() }),
+                secondaryButton: .cancel()
+            )
         }
     }
 }
