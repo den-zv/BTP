@@ -62,8 +62,12 @@ public struct CategoryListView: View {
     @ViewBuilder
     private func loader() -> some View {
         if viewModel.isLoadingShown {
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .green))
+            ZStack {
+                Color(UIColor.systemBackground)
+                    .opacity(0.7)
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .green))
+            }
         }
     }
     
@@ -86,10 +90,10 @@ public struct CategoryListView: View {
                 title: Text("Coming soon"),
                 message: Text("There are no any content yet")
             )
-        case .advertisement:
+        case .advertisement(let model):
             return .init(
                 title: Text("Show Ad?"),
-                primaryButton: .default(Text("Sure!"), action: { viewModel.showAd() }),
+                primaryButton: .default(Text("Sure!"), action: { viewModel.showAd(model) }),
                 secondaryButton: .cancel()
             )
         }

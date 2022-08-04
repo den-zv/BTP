@@ -22,16 +22,17 @@ public extension CategoryList {
         
         public enum Alert: Hashable, Identifiable {
             case comingSoon
-            case advertisement
+            case advertisement(Model)
             
             public var id: Self { self }
         }
         
         // MARK: - Stored properties
         
-        @Published var mode: Mode
+        @Published private var mode: Mode
         @Published private(set) var selection: Model?
         @Published var alert: Alert?
+        @Published private var isShowingAd = false
         
         private let environment: Environment
         
@@ -50,6 +51,10 @@ public extension CategoryList {
         }
         
         var isLoadingShown: Bool {
+            if isShowingAd {
+                return true
+            }
+            
             switch mode {
             case .idle, .loaded, .error:
                 return false
@@ -129,11 +134,30 @@ public extension CategoryList {
                 self.selection = selection
             case .paid:
                 self.selection = nil
-                self.alert = .advertisement
+                self.alert = .advertisement(selection)
             }
         }
         
-        func showAd() {}
+        func showAd(_ model: Model) {
+            guard !isShowingAd else {
+                return
+            }
+            
+            isShowingAd = true
+            
+            environment
+                .ads
+                .showAd()
+                .sink { [weak self] isWatched in
+                    guard let self = self, isWatched else {
+                        return
+                    }
+                    
+                    self.isShowingAd = false
+                    self.selection = model
+                }
+                .store(in: &cancellables)
+        }
         
         func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
             // we can pass services between view models here if needed
