@@ -37,7 +37,7 @@ public struct CategoryView: View {
             Spacer()
         }
         .padding()
-        .background(Color.cyan)
+        .background(Color.cyan.opacity(0.3))
         .cornerRadius(12)
     }
 }

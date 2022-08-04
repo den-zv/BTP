@@ -79,7 +79,11 @@ public extension CategoryList {
                 self.mode = .loaded([
                     .init(title: "Test 2", description: "Test 2", imageURL: nil, order: 2, content: []),
                     .init(title: "Test 1", description: "Test 1", imageURL: nil, order: 1, content: []),
-                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [])
+                    .init(title: "Test 3", description: "Test 3", imageURL: nil, order: 3, content: [
+                        .init(imageURL: nil, text: "Fact 1"),
+                        .init(imageURL: nil, text: "Fact 2"),
+                        .init(imageURL: nil, text: "Fact 3")
+                    ])
                 ])
             }
         }
