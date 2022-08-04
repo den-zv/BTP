@@ -45,6 +45,7 @@ public struct CategoryListView: View {
                         .frame(minHeight: 100)
                 }
                 .listRowSeparator(.hidden)
+                .disabled(model.isComingSoon)
             }
             .listStyle(.plain)
             .navigationTitle("Categories")

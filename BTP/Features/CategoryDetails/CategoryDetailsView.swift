@@ -37,36 +37,41 @@ public struct CategoryDetailsView: View {
     private func tabView() -> some View {
         TabView(selection: $viewModel.selection) {
             ForEach(Array(viewModel.facts.enumerated()), id: \.offset) { offset, element in
-                VStack {
-                    AsyncImage(
-                        url: element.imageURL,
-                        content: { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(height: 200)
-                                .clipped()
-                        },
-                        placeholder: {
-                            Image(systemName: "camera.fill")
-                        }
-                    )
-                    .frame(height: 200)
-                    
-                    HStack {
-                        Spacer()
-                        Text(element.text)
-                        Spacer()
-                    }
-                    .padding()
-                }
-                .background(Color.cyan.opacity(0.3))
-                .cornerRadius(12)
-                .padding()
-                .tag(offset)
+                tab(tag: offset, model: element)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
+    }
+    
+    @ViewBuilder
+    private func tab(tag: Int, model: Fact) -> some View {
+        VStack {
+            AsyncImage(
+                url: model.imageURL,
+                content: { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        .clipped()
+                },
+                placeholder: {
+                    Image(systemName: "camera.fill")
+                }
+            )
+            .frame(height: 200)
+            
+            HStack {
+                Spacer()
+                Text(model.text)
+                Spacer()
+            }
+            .padding()
+        }
+        .background(Color.cyan.opacity(0.3))
+        .cornerRadius(12)
+        .padding()
+        .tag(tag)
     }
     
     @ViewBuilder
