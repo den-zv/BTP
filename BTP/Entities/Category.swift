@@ -31,7 +31,8 @@ public struct Category: Hashable, Decodable {
     public let content: [Fact]
     
     public var isComingSoon: Bool {
-        content.isEmpty
+        // TODO: track "coming soon" stage on parsing stage via decodable initializer instead of comparing to -1 here
+        content.isEmpty && order != -1
     }
 }
 

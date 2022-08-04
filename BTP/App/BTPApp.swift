@@ -15,7 +15,8 @@ struct BTPApp: App {
             CategoryListView(viewModel: .initial(
                 environment: .init(
                     api: Self.Environment.live.api,
-                    ads: Self.Environment.live.ads
+                    ads: Self.Environment.live.ads,
+                    favorites: Self.Environment.live.favorites
                 )
             ))
         }

@@ -24,7 +24,11 @@ public struct CategoryDetailsView: View {
     public var body: some View {
         VStack {
             tabView()
-            buttonsView()
+            ZStack {
+                buttonsView()
+                favoriteView()
+            }
+            .frame(height: 40)
             Spacer(minLength: 50)
         }
         .navigationTitle(viewModel.title)
@@ -88,7 +92,9 @@ public struct CategoryDetailsView: View {
                         .aspectRatio(contentMode: .fit)
                 }
             }
+            
             Spacer()
+            
             if viewModel.showsNextButton {
                 Button {
                     withAnimation {
@@ -101,8 +107,20 @@ public struct CategoryDetailsView: View {
                 }
             }
         }
-        .frame(height: 40)
         .padding(.horizontal, 30)
+    }
+    
+    @ViewBuilder
+    private func favoriteView() -> some View {
+        Button {
+            withAnimation {
+                viewModel.toggleFavorites()
+            }
+        } label: {
+            Image(systemName: viewModel.isFavorited ? "star.fill" : "star")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        }
     }
 }
 

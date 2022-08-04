@@ -29,6 +29,7 @@ public extension CategoryList {
         
         // MARK: - Stored properties
         
+        @Published private var favorites: Model!
         @Published private var mode: Mode
         @Published private(set) var selection: Model?
         @Published var alert: Alert?
@@ -43,9 +44,9 @@ public extension CategoryList {
         var results: [Model] {
             switch mode {
             case .idle, .loading, .error:
-                return []
+                return [favorites]
             case .loaded(let results):
-                return results
+                return ([favorites] + results)
                     .sorted { $0.order < $1.order }
             }
         }
@@ -80,6 +81,14 @@ public extension CategoryList {
         public init(mode: Mode, environment: Environment) {
             self.mode = mode
             self.environment = environment
+            
+            environment
+                .favorites
+                .favorites()
+                .sink { [weak self] category in
+                    self?.favorites = category
+                }
+                .store(in: &cancellables)
         }
         
         // MARK: - Public methods
@@ -166,7 +175,7 @@ public extension CategoryList {
         
         func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
             // we can pass services between view models here if needed
-            .init(model: model, environment: .init())
+            .init(model: model, environment: .init(favorites: environment.favorites))
         }
     }
 }
@@ -186,7 +195,7 @@ public extension CategoryList.ViewModel {
 extension CategoryList.ViewModel {
     
     static var preview: Self {
-        .init(mode: .idle, environment: .init(api: .preview, ads: .preview))
+        .init(mode: .idle, environment: .init(api: .preview, ads: .preview, favorites: .preview))
     }
 }
 #endif

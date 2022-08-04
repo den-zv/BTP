@@ -13,5 +13,6 @@ public extension CategoryList {
         
         public let api: APIEnvironment
         public let ads: AdsEnvironment
+        public let favorites: FavoritesEnvironment
     }
 }
