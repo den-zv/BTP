@@ -46,6 +46,10 @@ public struct CategoryView: View {
                     .bold()
                 Text(viewState.subtitle)
                 Spacer()
+                if viewState.isPaid {
+                    Text("🔒 Paid Content")
+                        .foregroundColor(.accentColor)
+                }
             }
             
             Spacer()
@@ -75,12 +79,19 @@ public extension CategoryView {
         let imageURL: URL?
         let title: String
         let subtitle: String
+        let isPaid: Bool
         let isComingSoonShown: Bool
         
         init(model: CategoryList.Model) {
             imageURL = model.imageURL
             title = model.title
             subtitle = model.description
+            switch model.status {
+            case .free:
+                isPaid = false
+            case .paid:
+                isPaid = true
+            }
             isComingSoonShown = model.isComingSoon
         }
     }
