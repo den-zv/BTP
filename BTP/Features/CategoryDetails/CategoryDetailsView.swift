@@ -32,6 +32,7 @@ public struct CategoryDetailsView: View {
     }
     
     // MARK: - Subviews
+    
     @ViewBuilder
     private func tabView() -> some View {
         TabView(selection: $viewModel.selection) {
