@@ -166,7 +166,7 @@ public extension CategoryList {
         
         func categoryDetailsViewModel(for model: Model) -> CategoryDetails.ViewModel {
             // we can pass services between view models here if needed
-            .init(model: model, environment: .init())
+            .init(model: model, environment: .init(favorites: environment.favorites))
         }
     }
 }
@@ -186,7 +186,7 @@ public extension CategoryList.ViewModel {
 extension CategoryList.ViewModel {
     
     static var preview: Self {
-        .init(mode: .idle, environment: .init(api: .preview, ads: .preview))
+        .init(mode: .idle, environment: .init(api: .preview, ads: .preview, favorites: .preview))
     }
 }
 #endif

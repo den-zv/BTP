@@ -24,6 +24,7 @@
 		92E729D3289BA7700017C5CB /* CategoryList.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */; };
 		92E729D5289BAA790017C5CB /* CategoryDetails.Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */; };
 		92E729D7289BAB320017C5CB /* APIEnvironment.Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */; };
+		92E729D9289BF3460017C5CB /* FavoritesEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E729D8289BF3460017C5CB /* FavoritesEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		92E729D2289BA7700017C5CB /* CategoryList.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.Environment.swift; sourceTree = "<group>"; };
 		92E729D4289BAA790017C5CB /* CategoryDetails.Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.Environment.swift; sourceTree = "<group>"; };
 		92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.Stub.swift; sourceTree = "<group>"; };
+		92E729D8289BF3460017C5CB /* FavoritesEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				92E729CC289B9C130017C5CB /* APIEnvironment.swift */,
 				92E729D6289BAB320017C5CB /* APIEnvironment.Stub.swift */,
 				92E729CE289BA3C00017C5CB /* AdsEnvironment.swift */,
+				92E729D8289BF3460017C5CB /* FavoritesEnvironment.swift */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				92E729BA289AE12F0017C5CB /* CategoryList.Model.swift in Sources */,
 				92E729D1289BA5310017C5CB /* BTPApp.Environment.swift in Sources */,
 				92E729C1289B3BBE0017C5CB /* CategoryDetails.Model.swift in Sources */,
+				92E729D9289BF3460017C5CB /* FavoritesEnvironment.swift in Sources */,
 				92E729B6289AD6B40017C5CB /* CategoryListView.swift in Sources */,
 				92E729C5289B3BCF0017C5CB /* CategoryDetailsView.swift in Sources */,
 				92E729CF289BA3C00017C5CB /* AdsEnvironment.swift in Sources */,

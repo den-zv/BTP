@@ -57,7 +57,7 @@ public extension CategoryDetails {
 extension CategoryDetails.ViewModel {
     
     static var preview: Self {
-        .init(model: .preview(1), environment: .init())
+        .init(model: .preview(1), environment: .init(favorites: .preview))
     }
 }
 #endif

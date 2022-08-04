@@ -13,6 +13,7 @@ extension BTPApp {
         
         public let api: APIEnvironment
         public let ads: AdsEnvironment
+        public let favorites: FavoritesEnvironment
     }
 }
 
@@ -22,6 +23,6 @@ extension BTPApp.Environment {
     
     static var live: Self {
         // using stub for API here since live URL responds with 403
-        .init(api: .stub, ads: .live)
+        .init(api: .stub, ads: .live, favorites: .live)
     }
 }

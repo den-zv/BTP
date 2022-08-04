@@ -9,5 +9,8 @@ import Foundation
 
 public extension CategoryDetails {
     
-    struct Environment {}
+    struct Environment {
+        
+        public let favorites: FavoritesEnvironment
+    }
 }
